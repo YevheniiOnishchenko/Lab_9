@@ -1,0 +1,18 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: installing-service
+      apt: 
+        name: curl
+    - command: curl http://www.google.com -o file.txt
+- hosts: hosts
+  tasks:
+  - name: request
+    command: curl http://www.google.com -o file2.txt
+
+- hosts: all
+  tasks:
+  - name: listing
+    command: ls  
+
